@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Table</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f8;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin: 3px;
+            color: #2c3e50;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 98%;
+            margin: auto;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 6px;
+            font-size: 13px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .day {
+            font-weight: bold;
+            background-color: #dff9fb;
+            width: 80px;
+        }
+
+        .lab {
+            text-align: left;
+            font-size: 12px;
+            background-color: #f1f2f6;
+        }
+
+        .break {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-weight: bold;
+            letter-spacing: 3px;
+            background-color: #ff7675;
+            color: white;
+        }
+
+        /* Different colors for subjects */
+        td {
+            background-color: #ffffff;
+        }
+
+        tr:nth-child(even) td:not(.lab):not(.break) {
+            background-color: #f9f9f9;
+        }
+
+        /* Highlight lecture cells */
+        td:not(.lab):not(.break):not(.day) {
+            background-color: #eafaf1;
+        }
+
+        /* Hover effect */
+        tr:hover td {
+            background-color: #ffeaa7;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h2>D. Y. Patil College of Engineering & Technology, Kolhapur</h2>
+<h3>Department of Computer Science & Engineering</h3>
+<h3>Time Table 2025-2026 (SEM-II)</h3>
+
+<br>
+
+<table>
+
+<tr>
+    <th>Day & Time</th>
+    <th>9:00 - 10:00</th>
+    <th>10:00 - 11:00</th>
+    <th rowspan="7" class="break">BREAK</th>
+    <th>11:15 - 12:15</th>
+    <th>12:15 - 1:15</th>
+    <th rowspan="7" class="break">BREAK</th>
+    <th>2:00 - 3:00</th>
+    <th>3:00 - 4:00</th>
+</tr>
+
+<tr>
+    <td class="day">Monday</td>
+    <td colspan="2" class="lab">
+        S1-DSL(P) AMP Lab G405C<br>
+        S2-AOOC(P) PVK Lab G207<br>
+        S3-TPMS(P) PRP Lab G406<br>
+        S4-WD(P) SSK Lab G106<br>
+        S5-TTL(P) SSM Lab G205<br>
+        S6-TTL(P) RVD Lab G206
+    </td>
+    <td>AOOC(L)<br>PVK</td>
+    <td>MDM-II(L)<br>NAH</td>
+    <td>DSL(L)<br>AMP</td>
+    <td>-</td>
+</tr>
+
+<tr>
+    <td class="day">Tuesday</td>
+    <td colspan="2" class="lab">
+        S1-TTL(P) RVD Lab G105<br>
+        S2-DSL(P) AMP Lab G405C<br>
+        S3-AOOC(P) PVK Lab G207<br>
+        S4-TPMS(P) PRP Lab G406<br>
+        S5-WD(P) SSK Lab G106<br>
+        S6-TTL(P) PRG Lab G103
+    </td>
+    <td>AT(L)<br>KAB</td>
+    <td>DSL(L)<br>AMP</td>
+    <td>WD(L)<br>SSK</td>
+    <td>ENV(L)</td>
+</tr>
+
+<tr>
+    <td class="day">Wednesday</td>
+    <td colspan="2" class="lab">
+        S1-TTL(P) PRG Lab G205<br>
+        S2-TTL(P) RVD Lab B201A<br>
+        S3-DSL(P) AMP Lab G405C<br>
+        S4-AOOC(P) PVK Lab G207<br>
+        S5-TPMS(P) PRP Lab G406<br>
+        S6-WD(P) SSK Lab G106
+    </td>
+    <td>AOOC(L)<br>PVK</td>
+    <td>MDM-II(L)<br>NAH</td>
+    <td>DSL(L)<br>AMP</td>
+    <td>ENV(L)</td>
+</tr>
+
+<tr>
+    <td class="day">Thursday</td>
+    <td colspan="2" class="lab">
+        S1-WD(P) SSK Lab G106<br>
+        S2-TTL(P) VSP Lab G101<br>
+        S3-TTL(P) RVD Lab G103<br>
+        S4-DSL(P) AMP Lab G405C<br>
+        S5-AOOC(P) PVK Lab G207<br>
+        S6-TPMS(P) PRP Lab G406
+    </td>
+    <td>AT(L)<br>KAB</td>
+    <td>AT(L)<br>KAB</td>
+    <td>-</td>
+    <td>OEC-II(L)</td>
+</tr>
+
+<tr>
+    <td class="day">Friday</td>
+    <td colspan="2" class="lab">
+        S1-TPMS(P) PRP Lab G406<br>
+        S2-WD(P) SSK Lab G106<br>
+        S3-TTL(P) SSM Lab B201B<br>
+        S4-TTL(P) RVD Lab B201A<br>
+        S5-DSL(P) AMP Lab G405C<br>
+        S6-AOOC(P) PVK Lab G105
+    </td>
+    <td colspan="2" class="lab">
+        S1-AOOC(P) PVK Lab G207<br>
+        S2-TPMS(P) PRP Lab G406<br>
+        S3-WD(P) SSK Lab G106<br>
+        S4-TTL(P) SDK Lab G103<br>
+        S5-TTL(P) RVD Lab G101<br>
+        S6-DSL(P) AMP Lab G405C
+    </td>
+    <td>TPMS(L)<br>PRP</td>
+    <td>OEC-II(L)</td>
+</tr>
+
+<tr>
+    <td class="day">Saturday</td>
+    <td colspan="2">LLC-PRP</td>
+    <td colspan="2">LLC-PRP</td>
+    <td colspan="2">-</td>
+</tr>
+
+</table>
+
+</body>
+</html>
