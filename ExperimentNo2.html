@@ -2,51 +2,163 @@
 <html>
 <head>
     <title>My Profile</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff, #f0f9ff);
+        }
+
+        .top-bar {
+            background: linear-gradient(90deg, #4f46e5, #6366f1);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+        }
+
+        /* Highlight box */
+        .highlight {
+            text-align: center;
+            background: #4f46e5;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #4f46e5;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        /* Skill badges */
+        .badge {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            padding: 6px 12px;
+            margin: 5px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Welcome to My Profile</h1>
-    <hr>
+<div class="top-bar">
+    Name: Sakshi Manik Sherkhane | Roll No: 33
+</div>
 
-    <h2>About Me</h2>
-    <p>
-        Hello! My name is <b>Sakshi Sherkhane</b>.  
-        I am a passionate student who loves learning new technologies
-        and building simple yet meaningful projects.
-    </p>
+<div class="container">
 
-    <h2>Education</h2>
-    <ul>
-        <li>Bachelor of Engineering (2nd Year)</li>
-        <li>Field: Computer Science And Engineering / IT</li>
-        <li>Country: India</li>
-    </ul>
+    <h1>Welcome to My Profile 👩‍💻</h1>
 
-    <h2>Skills</h2>
-    <ul>
-        <li>HTML</li>
-        <li>Basic Java & Python</li>
-        <li>Problem Solving</li>
-        <li>Learning AI & ML Concepts</li>
-    </ul>
+    <div class="highlight">
+        Passionate Computer Engineering Student | Learning Web Development & AI
+    </div>
 
-    <h2>Interests</h2>
-    <p>
-        I enjoy working on real-world problem-solving projects,
-        participating in hackathons, and exploring innovative tech ideas.
-    </p>
+    <div class="card">
+        <h2>About Me</h2>
+        <p>
+            Hello! My name is <b>Sakshi Sherkhane</b>. I am a passionate student who enjoys 
+            learning new technologies and building meaningful projects. I am currently 
+            focusing on improving my web development and problem-solving skills.
+        </p>
+    </div>
 
-    <h2>Goals</h2>
-    <p>
-        My goal is to improve my technical skills and create projects
-        that can make a positive impact on society.
-    </p>
+    <div class="card">
+        <h2>Education</h2>
+        <ul>
+            <li>B.Tech(2nd Year)</li>
+            <li>Computer Science And Engineering</li>
+            <li>Studying in India</li>
+        </ul>
+    </div>
 
-    <hr>
-    <p>
-        <i>Thank you for visiting my profile page!</i>
-    </p>
+    <div class="card">
+        <h2>Skills</h2>
+        <span class="badge">HTML</span>
+        <span class="badge">CSS</span>
+        <span class="badge">Java</span>
+        <span class="badge">Python</span>
+        <span class="badge">Problem Solving</span>
+        <span class="badge">AI & ML Basics</span>
+    </div>
+
+    <div class="card">
+        <h2>Projects</h2>
+        <ul>
+            <li>Student Profile Webpage</li>
+            <li>Simple Java Programs</li>
+            <li>Mini Web Development Projects</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Interests</h2>
+        <p>
+            I enjoy participating in hackathons, working on real-world problems,
+            and exploring innovative technology ideas.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Goals</h2>
+        <p>
+            My goal is to become a skilled developer and build applications that 
+            can create a positive impact on society.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Contact</h2>
+        <p>Email: sakshisherkhane@gmail.com</p>
+        <p>Location: India</p>
+    </div>
+
+    <div class="footer">
+        Thank you for visiting my profile page!
+    </div>
+
+</div>
 
 </body>
 </html>
