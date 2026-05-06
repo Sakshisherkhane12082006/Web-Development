@@ -1,59 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>All Frames in One File</title>
+    <title>Unique Frame Layout</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 12px;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            height: 85vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 25%;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+        }
+
+        .sidebar h3 {
+            text-align: center;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover {
+            background: #2980b9;
+        }
+
+        /* Content */
+        .content {
+            width: 75%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 
-<!-- Divide page into 2 rows -->
-<frameset rows="25%,75%">
+<body>
 
-    <!-- Top Frame -->
-    <frame src="data:text/html,
-        <html>
-        <body style='background-color:lightblue; text-align:center;'>
-        <h3>Name: Sakshi Manik Sherkhane | Roll No: 33</h3>
-        <h1>WELCOME TO MY UNIQUE FRAME PAGE</h1>
-        </body>
-        </html>">
+<div class="header">
+    <h3>Name: Sakshi Manik Sherkhane | Roll No: 33</h3>
+    <h1>Unique Frame Layout</h1>
+</div>
 
-    <!-- Bottom Section divided into 2 columns -->
-    <frameset cols="30%,70%">
+<div class="container">
 
-        <!-- Left Frame -->
-        <frame src="data:text/html,
-            <html>
-            <body style='background-color:lightgray;'>
-            <h3>MENU</h3>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-            </body>
-            </html>">
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <h3>Menu</h3>
 
-        <!-- Right Frame containing IFRAME -->
-        <frame src="data:text/html,
-            <html>
-            <body style='background-color:white; text-align:center;'>
-            <h2>Main Content Area</h2>
-            <p>Below is an IFRAME inside a FRAME</p>
+        <button onclick="loadContent('home')">Home</button>
+        <button onclick="loadContent('about')">About</button>
+        <button onclick="loadContent('skills')">Skills</button>
+        <button onclick="loadContent('contact')">Contact</button>
+    </div>
 
-            <iframe srcdoc=
-            '<html>
-            <body style=&quot;background-color:lightyellow; text-align:center;&quot;>
-            <h3>This is inside IFRAME</h3>
-            <p>All created in ONE single file!</p>
-            </body>
-            </html>'
-            width='90%' height='150'>
-            </iframe>
+    <!-- Content Frame -->
+    <div class="content">
+        <iframe id="frame"></iframe>
+    </div>
 
-            </body>
-            </html>">
+</div>
 
-    </frameset>
+<script>
+function loadContent(page) {
 
-</frameset>
+    let data = "";
 
-</html> add my roll no and name in it
+    if(page === "home") {
+        data = "<h2>Welcome</h2><p>This is my unique frame layout project.</p>";
+    }
+    else if(page === "about") {
+        data = "<h2>About Me</h2><p>I am Sakshi, learning Web Technology.</p>";
+    }
+    else if(page === "skills") {
+        data = "<h2>Skills</h2><ul><li>HTML</li><li>CSS</li><li>Java</li></ul>";
+    }
+    else if(page === "contact") {
+        data = "<h2>Contact</h2><p>Email: sakshi@example.com</p>";
+    }
+
+    document.getElementById("frame").srcdoc =
+    "<html><body style='font-family:Arial;text-align:center;padding:20px;'>" 
+    + data + 
+    "</body></html>";
+}
+</script>
+
+</body>
+</html>
