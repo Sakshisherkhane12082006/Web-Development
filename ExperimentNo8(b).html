@@ -6,7 +6,17 @@
     <style>
         body {
             font-family: Arial;
-            background-color: #f4f6f8;
+            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+            margin: 0;
+        }
+
+        /* Header */
+        .top-bar {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
         }
 
         h2, h3 {
@@ -17,13 +27,15 @@
 
         table {
             border-collapse: collapse;
-            width: 98%;
-            margin: auto;
+            width: 95%;
+            margin: 20px auto;
             background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         th, td {
-            border: 1px solid black;
+            border: 1px solid #ccc;
             padding: 6px;
             font-size: 13px;
             text-align: center;
@@ -31,7 +43,7 @@
         }
 
         th {
-            background-color: #34495e;
+            background-color: #4a69bd;
             color: white;
         }
 
@@ -52,40 +64,37 @@
             transform: rotate(180deg);
             font-weight: bold;
             letter-spacing: 3px;
-            background-color: #ff7675;
+            background-color: #ff6b6b;
             color: white;
         }
 
-        /* Different colors for subjects */
-        td {
-            background-color: #ffffff;
-        }
-
-        tr:nth-child(even) td:not(.lab):not(.break) {
-            background-color: #f9f9f9;
-        }
-
-        /* Highlight lecture cells */
+        /* Lecture cells */
         td:not(.lab):not(.break):not(.day) {
             background-color: #eafaf1;
         }
 
-        /* Hover effect */
+        /* Alternate row */
+        tr:nth-child(even) td:not(.lab):not(.break) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover */
         tr:hover td {
             background-color: #ffeaa7;
         }
 
     </style>
-
 </head>
 
 <body>
 
+<div class="top-bar">
+    Name: Sakshi Manik Sherkhane | Roll No: 33
+</div>
+
 <h2>D. Y. Patil College of Engineering & Technology, Kolhapur</h2>
 <h3>Department of Computer Science & Engineering</h3>
 <h3>Time Table 2025-2026 (SEM-II)</h3>
-
-<br>
 
 <table>
 
