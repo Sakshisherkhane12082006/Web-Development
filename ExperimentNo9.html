@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: linear-gradient(135deg, #e0ecff, #f8fafc);
+        }
+
+        /* Header */
+        .top-bar {
+            background: linear-gradient(90deg, #ff6a00, #ee0979);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Form Container */
+        .form-container {
+            width: 420px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 7px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #ff6a00;
+            outline: none;
+        }
+
+        /* Radio buttons fix */
+        .gender input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .submit {
+            background: #28a745;
+        }
+
+        .reset {
+            background: #dc3545;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    Name: Sakshi Manik Sherkhane | Roll No: 33
+</div>
+
+<h2>Employee Registration Form</h2>
+
+<div class="form-container">
+
+<form>
+<table>
+
+<tr>
+    <td>Full Name:</td>
+    <td><input type="text" placeholder="Enter your name"></td>
+</tr>
+
+<tr>
+    <td>Email:</td>
+    <td><input type="email" placeholder="Enter your email"></td>
+</tr>
+
+<tr>
+    <td>Password:</td>
+    <td><input type="password" placeholder="Enter password"></td>
+</tr>
+
+<tr>
+    <td>Phone Number:</td>
+    <td><input type="tel" placeholder="Enter phone number"></td>
+</tr>
+
+<tr>
+    <td>Gender:</td>
+    <td class="gender">
+        <input type="radio" name="g"> Male
+        <input type="radio" name="g"> Female
+    </td>
+</tr>
+
+<tr>
+    <td>Date of Birth:</td>
+    <td><input type="date"></td>
+</tr>
+
+<tr>
+    <td>Department:</td>
+    <td>
+        <select>
+            <option>Select Department</option>
+            <option>HR</option>
+            <option>IT</option>
+            <option>Finance</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Address:</td>
+    <td><textarea rows="3" placeholder="Enter address"></textarea></td>
+</tr>
+
+<tr>
+    <td>Upload Resume:</td>
+    <td><input type="file"></td>
+</tr>
+
+<tr>
+    <td></td>
+    <td>
+        <button class="btn submit">Submit</button>
+        <button type="reset" class="btn reset">Reset</button>
+    </td>
+</tr>
+
+</table>
+</form>
+
+</div>
+
+</body>
+</html>
