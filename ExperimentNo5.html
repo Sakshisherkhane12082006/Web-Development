@@ -2,19 +2,88 @@
 <html>
 <head>
     <title>My Image Webpage</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f4ff;
+        }
+
+        /* Header */
+        .top-bar {
+            background: linear-gradient(90deg, #ff758c, #ff7eb3);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        p {
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
 </head>
 
 <body>
-   <h2>Sakshi Manik Sherkhane(S2-33)</h2>
-    <h1>Welcome to My Webpage</h1>
-    <hr>
 
-    <img src="./shinchan.jpeg"
-         alt="Shinchan Image"
-         width="300"
-         height="300">
+<div class="top-bar">
+    Name: Sakshi Manik Sherkhane | Roll No: 33
+</div>
 
-    <p>--Above is the image included using the img tag--</p>
+<div class="container">
+
+<h1>Welcome to My Image Webpage</h1>
+<hr>
+
+<div class="gallery">
+
+    <img src="shinchan.jpeg" alt="Shinchan Image">
+
+    <img src="calm girl.png" alt="Calm Girl Image">
+
+    <img src="./nature image.jpeg" alt="Nature Image">
+
+    <img src="sunset-city-skyline-stockcake.webp" alt="Sunset City Image">
+
+</div>
+
+<p>-- All images are included using local file paths --</p>
+
+</div>
 
 </body>
 </html>
