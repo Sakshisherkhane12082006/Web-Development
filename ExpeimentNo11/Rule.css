@@ -1,0 +1,73 @@
+books {
+    display: block;
+    font-family: Arial;
+    background: linear-gradient(135deg, #eef2f7, #f8fbff);
+    padding: 30px;
+}
+
+/* Heading */
+heading {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+/* Book Card */
+book {
+    display: block;
+    background: white;
+    margin: 15px auto;
+    padding: 15px;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    border-left: 6px solid #1e3c72;
+    transition: 0.3s;
+}
+
+/* Hover */
+book:hover {
+    transform: scale(1.02);
+}
+
+/* Title */
+title {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+/* Labels */
+author::before {
+    content: "Author: ";
+    font-weight: bold;
+}
+
+publisher::before {
+    content: "Publisher: ";
+    font-weight: bold;
+}
+
+edition::before {
+    content: "Edition: ";
+    font-weight: bold;
+}
+
+price::before {
+    content: "Price: ₹";
+    font-weight: bold;
+}
+
+/* Common text */
+author, publisher, edition, price {
+    display: block;
+    color: #444;
+    margin-top: 4px;
+}

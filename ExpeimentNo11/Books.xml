@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="Rule.css"?>
+
+<books>
+
+    <heading>📘 Computer Science Book Library</heading>
+
+    <book>
+        <title>Web Programming</title>
+        <author>Chris Bates</author>
+        <publisher>Wiley</publisher>
+        <edition>3</edition>
+        <price>300</price>
+    </book>
+
+    <book>
+        <title>Computer Networks</title>
+        <author>Forouzan</author>
+        <publisher>McGraw Hill</publisher>
+        <edition>5</edition>
+        <price>700</price>
+    </book>
+
+    <book>
+        <title>Database System Concepts</title>
+        <author>Silberschatz</author>
+        <publisher>McGraw Hill</publisher>
+        <edition>6</edition>
+        <price>650</price>
+    </book>
+
+    <book>
+        <title>Operating System Concepts</title>
+        <author>Galvin</author>
+        <publisher>Wiley</publisher>
+        <edition>9</edition>
+        <price>750</price>
+    </book>
+
+    <book>
+        <title>Data Structures and Algorithms</title>
+        <author>Mark Allen Weiss</author>
+        <publisher>Pearson</publisher>
+        <edition>2</edition>
+        <price>500</price>
+    </book>
+
+</books>
