@@ -1,22 +1,20 @@
-<?xml version = "1.0"?> 
-<?xml-stylesheet type = "text/xsl" href = "students.xsl"?> 
-<class> 
-   <student rollno = "393"> 
-      <firstname>Dinkar</firstname> 
-      <lastname>Kad</lastname> 
-      <nickname>Dinkar</nickname> 
-      <marks>85</marks> 
-   </student> 
-   <student rollno = "493"> 
-      <firstname>Vaneet</firstname> 
-      <lastname>Gupta</lastname> 
-      <nickname>Vinni</nickname> 
-      <marks>95</marks> 
-   </student> 
-   <student rollno = "593"> 
-      <firstname>Jasvir</firstname> 
-      <lastname>Singh</lastname> 
-      <nickname>Jazz</nickname> 
-      <marks>90</marks> 
-   </student> 
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="students.xsl"?>
+
+<class>
+
+   <student rollno="25">
+      <firstname>Sakshi</firstname>
+      <lastname></lastname>
+      <nickname>Triveni</nickname>
+      <marks>95</marks>
+   </student>
+
+   <student rollno="GC">
+      <firstname>Raj</firstname>
+      <lastname></lastname>
+      <nickname>Pransh</nickname>
+      <marks>88</marks>
+   </student>
+
 </class>
