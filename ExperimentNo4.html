@@ -2,13 +2,90 @@
 <html>
 <head>
     <title>All HTML List Tags</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9fafb;
+        }
+
+        /* Top Header */
+        .top-bar {
+            background: linear-gradient(90deg, #11998e, #38ef7d);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+        }
+
+        /* Section Card */
+        .section {
+            background: white;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #11998e;
+        }
+
+        /* List Styling */
+        ul, ol, dl {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        dt {
+            font-weight: bold;
+            color: #333;
+        }
+
+        dd {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        .footer {
+            text-align: center;
+            font-style: italic;
+            margin: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
+<div class="top-bar">
+    Name: Sakshi Manik Sherkhane | Roll No: 33
+</div>
+
+<div class="container">
+
 <h1>HTML List Tags Demonstration</h1>
 <hr>
 
+<div class="section">
 <h2>1. Unordered Lists</h2>
 
 <ul type="disc">
@@ -25,7 +102,9 @@
     <li>Square Bullet</li>
     <li>HTML Lists</li>
 </ul>
+</div>
 
+<div class="section">
 <h2>2. Ordered Lists</h2>
 
 <ol type="1">
@@ -52,7 +131,9 @@
     <li>Small Roman</li>
     <li>Final Step</li>
 </ol>
+</div>
 
+<div class="section">
 <h2>3. Definition List</h2>
 
 <dl>
@@ -68,7 +149,9 @@
     <dt>DL</dt>
     <dd>Definition List</dd>
 </dl>
+</div>
 
+<div class="section">
 <h2>4. Nested List (Combination)</h2>
 
 <ul type="disc">
@@ -84,9 +167,15 @@
         </ol>
     </li>
 </ul>
+</div>
 
 <hr>
-<p><i>All types of HTML list tags demonstrated.</i></p>
+
+<div class="footer">
+    <i>All types of HTML list tags demonstrated.</i>
+</div>
+
+</div>
 
 </body>
 </html>
