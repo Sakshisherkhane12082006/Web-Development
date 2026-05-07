@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Experiment Dashboard</title>
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER STYLES ===== */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+
+        /* ===== SEARCH SECTION ===== */
+        .search-section {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+            pointer-events: none;
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* ===== EXPERIMENT GRID ===== */
+        .experiment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        /* ===== EXPERIMENT CARD ===== */
+        .experiment-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            opacity: 1;
+            transform: translateY(0);
+            animation: cardFadeIn 0.6s ease-out forwards;
+        }
+
+        .experiment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .experiment-card.hidden {
+            display: none;
+        }
+
+        .experiment-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .experiment-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            min-height: 2.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .open-button {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .open-button:hover {
+            background: linear-gradient(135deg, #5a6fd8, #6a4190);
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .open-button:active {
+            transform: scale(0.98);
+        }
+
+        /* ===== NO RESULTS MESSAGE ===== */
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            margin: 2rem auto;
+            max-width: 500px;
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .no-results-text {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .experiment-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .main-container {
+                padding: 1rem;
+            }
+
+            .header-content {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .experiment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .experiment-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .experiment-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        .open-button:focus,
+        .search-input:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        /* ===== STAGGERED ANIMATION ===== */
+        .experiment-card:nth-child(1) { animation-delay: 0.1s; }
+        .experiment-card:nth-child(2) { animation-delay: 0.15s; }
+        .experiment-card:nth-child(3) { animation-delay: 0.2s; }
+        .experiment-card:nth-child(4) { animation-delay: 0.25s; }
+        .experiment-card:nth-child(5) { animation-delay: 0.3s; }
+        .experiment-card:nth-child(6) { animation-delay: 0.35s; }
+        .experiment-card:nth-child(7) { animation-delay: 0.4s; }
+        .experiment-card:nth-child(8) { animation-delay: 0.45s; }
+        .experiment-card:nth-child(9) { animation-delay: 0.5s; }
+        .experiment-card:nth-child(10) { animation-delay: 0.55s; }
+        .experiment-card:nth-child(11) { animation-delay: 0.6s; }
+        .experiment-card:nth-child(12) { animation-delay: 0.65s; }
+        .experiment-card:nth-child(13) { animation-delay: 0.7s; }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER SECTION ===== -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="main-title">WEB DEVELOPMENT EXPERIMENT DASHBOARD</h1>
+            <p class="subtitle">A centralized workspace for all experiments</p>
+        </div>
+    </header>
+
+    <!-- ===== SEARCH SECTION ===== -->
+    <section class="search-section">
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="searchInput" 
+                placeholder="Search experiments..."
+                autocomplete="off"
+            >
+            <span class="search-icon">🔍</span>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-container">
+        <div class="experiment-grid" id="experimentGrid">
+            <!-- Experiment cards will be generated by JavaScript -->
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <p class="no-results-text">No experiments found matching your search.</p>
+        </div>
+    </main>
+
+    <script>
+        // ===== EXPERIMENT DATA =====
+        const experiments = [
+            { id: 1, name: "Study of Web Technology Basics", file: "ExpeimentNo1.html" },
+            { id: 2, name: "HTML Static Web Page Creation", file: "ExperimentNo2.html" },
+            { id: 3, name: "Text Formatting in HTML", file: "ExpeimentNo3.html" },
+            { id: 4, name: "HTML List Tags Implementation", file: "ExperimentNo4.html" },
+            { id: 5, name: "Image Embedding in HTML", file: "ExperimentNo5.html" },
+            { id: 6, name: "HTML Frames Concept", file: "ExperimentNo6.html" },
+            { id: 7, name: "Hyperlink Tags in HTML", file: "ExperimentNo7.html" },
+            { id: 8, name: "HTML Table Structure", file: "ExperimentNo8.html" },
+            { id: 9, name: "Employee Registration Form", file: "ExperimentNo9.html" },
+            { id: 10, name: "Resume Webpage Design", file: "ExperimentNo10.html" },
+            { id: 11, name: "XML Basics Study", file: "ExpeimentNo11/Books.xml" },
+            { id: 12, name: "XSLT Transformation of XML", file: "ExperimentNo12/cdcatlog_output.htm" },
+            { id: 13, name: "HTML Form Validation", file: "ExperimentNo13/students_output.htm" }
+        ];
+
+        // ===== DOM ELEMENTS =====
+        const experimentGrid = document.getElementById('experimentGrid');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        // ===== RENDER EXPERIMENT CARDS =====
+        function renderExperimentCards() {
+            experimentGrid.innerHTML = '';
+            
+            experiments.forEach(experiment => {
+                const card = createExperimentCard(experiment);
+                experimentGrid.appendChild(card);
+            });
+        }
+
+        // ===== CREATE SINGLE EXPERIMENT CARD =====
+        function createExperimentCard(experiment) {
+            const card = document.createElement('div');
+            card.className = 'experiment-card';
+            card.dataset.experimentId = experiment.id;
+            card.dataset.experimentName = experiment.name.toLowerCase();
+            
+            card.innerHTML = `
+                <span class="experiment-number">Experiment ${experiment.id}</span>
+                <h3 class="experiment-title">${experiment.name}</h3>
+                <button class="open-button" onclick="openExperiment('${experiment.file}', ${experiment.id})">
+                    Open Experiment
+                </button>
+            `;
+            
+            return card;
+        }
+
+        // ===== OPEN EXPERIMENT =====
+        function openExperiment(filename, experimentId) {
+            // Open in new tab
+            window.open(filename, '_blank');
+            
+            // Optional: Log for analytics or debugging
+            console.log(`Opening Experiment ${experimentId}: ${filename}`);
+        }
+
+        // ===== SEARCH FUNCTIONALITY =====
+        function filterExperiments() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.experiment-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const experimentName = card.dataset.experimentName;
+                const experimentId = card.dataset.experimentId;
+                
+                // Check if search term matches experiment name or ID
+                const matchesSearch = experimentName.includes(searchTerm) || 
+                                    experimentId.includes(searchTerm);
+                
+                if (matchesSearch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Show/hide no results message
+            if (visibleCount === 0 && searchTerm !== '') {
+                noResults.classList.add('show');
+            } else {
+                noResults.classList.remove('show');
+            }
+        }
+
+        // ===== EVENT LISTENERS =====
+        function initializeEventListeners() {
+            // Search input event listener with debouncing
+            let searchTimeout;
+            searchInput.addEventListener('input', () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(filterExperiments, 150);
+            });
+
+            // Clear search on Escape key
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    filterExperiments();
+                    searchInput.blur();
+                }
+            });
+
+            // Focus search on Ctrl+K or Cmd+K
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
+        }
+
+        // ===== UTILITY FUNCTIONS =====
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // ===== INITIALIZE APPLICATION =====
+        function initializeApp() {
+            // Render initial experiment cards
+            renderExperimentCards();
+            
+            // Initialize event listeners
+            initializeEventListeners();
+            
+            // Set initial focus to search for better UX
+            setTimeout(() => {
+                searchInput.focus();
+            }, 1000);
+            
+            // Log initialization
+            console.log('Web Development Experiment Dashboard initialized successfully');
+            console.log(`Loaded ${experiments.length} experiments`);
+        }
+
+        // ===== ERROR HANDLING =====
+        window.addEventListener('error', (e) => {
+            console.error('Dashboard Error:', e.error);
+        });
+
+        // ===== START APPLICATION =====
+        document.addEventListener('DOMContentLoaded', initializeApp);
+
+        // ===== PERFORMANCE OPTIMIZATION =====
+        // Use requestAnimationFrame for smooth animations
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateAnimations);
+                ticking = true;
+            }
+        }
+
+        function updateAnimations() {
+            ticking = false;
+        }
+
+        // ===== ACCESSIBILITY ENHANCEMENTS =====
+        // Add keyboard navigation for experiment cards
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                // Allow normal tab navigation
+                return;
+            }
+            
+            const focusedElement = document.activeElement;
+            if (focusedElement.classList.contains('experiment-card')) {
+                const cards = Array.from(document.querySelectorAll('.experiment-card:not(.hidden)'));
+                const currentIndex = cards.indexOf(focusedElement);
+                
+                if (e.key === 'ArrowRight' && currentIndex < cards.length - 1) {
+                    cards[currentIndex + 1].focus();
+                    e.preventDefault();
+                } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    cards[currentIndex - 1].focus();
+                    e.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
